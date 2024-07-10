@@ -8,7 +8,7 @@ function clearDisplay() {
     lastKeyWasOperator = false;
 }
 
-function appendToDisplay(value) {
+function appendTheValue(value) {
     if (value === '.' && hasDecimal) return;
 
     if (lastKeyWasOperator && ['+', '-', '*', '/'].includes(value)) {
@@ -48,12 +48,12 @@ function handleKeyboardInput(event) {
     const key = event.key;
 
     if (/\d/.test(key)) {
-        appendToDisplay(key);
+        appendTheValue(key);
     } else if (['+', '-', '*', '/'].includes(key)) {
-        appendToDisplay(key);
+        appendTheValue(key);
         hasDecimal = false;
     } else if (key === '.') {
-        appendToDisplay(key);
+        appendTheValue(key);
     } else if (key === 'Enter') {
         calculateResult();
     } else if (key === 'Backspace') {
